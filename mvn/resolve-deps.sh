@@ -10,7 +10,7 @@ do
   i=0
   until [[ $i -ge $MAX_RETRIES ]]
   do
-    mvn --batch-mode org.apache.maven.plugins:maven-dependency-plugin:3.0.0:get -Dartifact="$LINE" && break;
+    mvn --batch-mode org.apache.maven.plugins:maven-dependency-plugin:3.0.0:get -DremoteRepositories=https://repo.maven.apache.org,http://repo.spring.io/release,http://repo.spring.io/milestone,http://version99.qos.ch/,http://jcenter.bintray.com -Dartifact="$LINE" && break;
     i=$((i + 1))
     sleep 1
   done
